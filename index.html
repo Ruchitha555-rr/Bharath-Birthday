@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ❤️</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         PAGE 1
+    ========================== -->
+
+    <section class="page page-one active" id="page1">
+
+        <div class="card">
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <h1>
+                Happy Birthday!
+            </h1>
+
+            <h2>
+                To Someone Very Special ❤️
+            </h2>
+
+            <p>
+                Today is a special day because it celebrates
+                an amazing person.
+            </p>
+
+            <button onclick="showPage(2)">
+                Start the Surprise ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 2
+    ========================== -->
+
+    <section class="page page-two" id="page2">
+
+        <div class="card">
+
+            <!-- ADD YOUR PHOTO HERE -->
+            <img
+                src="your-photo.jpg"
+                alt="Birthday Photo"
+                class="birthday-photo"
+            >
+
+            <h2>
+                A Little Message For You 💕
+            </h2>
+
+            <p>
+                May your life always be filled with
+                happiness, laughter, love and beautiful memories.
+            </p>
+
+            <p>
+                Keep smiling, keep dreaming,
+                and keep being the wonderful person you are. 🌟
+            </p>
+
+            <button onclick="showPage(3)">
+                One More Surprise 🎁
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 3
+    ========================== -->
+
+    <section class="page page-three" id="page3">
+
+        <div class="card">
+
+            <div class="gift">
+                🎁
+            </div>
+
+            <h1>
+                One Final Surprise! ❤️
+            </h1>
+
+            <p>
+                Some people make ordinary days
+                feel a little more special...
+            </p>
+
+            <h2 class="special-message">
+                And you are one of those people. 🥰
+            </h2>
+
+            <p>
+                Wishing you the happiest birthday
+                and an amazing year ahead! 🎂✨
+            </p>
+
+            <button onclick="celebrate()">
+                Celebrate! 🎉
+            </button>
+
+            <div id="finalMessage" class="final-message">
+                HAPPY BIRTHDAY! 🥳❤️🎈
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Page Indicator -->
+
+    <div class="page-dots" id="pageDots">
+        ● ○ ○
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        let currentPage = 1;
+
+
+        function showPage(pageNumber) {
+
+            document
+                .getElementById("page" + currentPage)
+                .classList.remove("active");
+
+            document
+                .getElementById("page" + pageNumber)
+                .classList.add("active");
+
+            currentPage = pageNumber;
+
+
+            // Update dots
+
+            if (pageNumber === 1) {
+
+                document.getElementById("pageDots").innerHTML =
+                    "● ○ ○";
+
+            }
+
+            else if (pageNumber === 2) {
+
+                document.getElementById("pageDots").innerHTML =
+                    "○ ● ○";
+
+            }
+
+            else {
+
+                document.getElementById("pageDots").innerHTML =
+                    "○ ○ ●";
+
+                createConfetti();
+            }
+
+        }
+
+
+        function celebrate() {
+
+            document
+                .getElementById("finalMessage")
+                .style.display = "block";
+
+            createConfetti();
+
+            createHearts();
+
+        }
+
+
+        // Confetti Animation
+
+        function createConfetti() {
+
+            for (let i = 0; i < 40; i++) {
+
+                let confetti =
+                    document.createElement("div");
+
+                confetti.className = "confetti";
+
+                let emojis = [
+                    "🎉",
+                    "✨",
+                    "💖",
+                    "🎈",
+                    "⭐",
+                    "🥳"
+                ];
+
+                confetti.innerHTML =
+                    emojis[
+                        Math.floor(
+                            Math.random() * emojis.length
+                        )
+                    ];
+
+                confetti.style.left =
+                    Math.random() * 100 + "%";
+
+                confetti.style.animationDelay =
+                    Math.random() * 2 + "s";
+
+                document.body.appendChild(confetti);
+
+
+                setTimeout(function () {
+
+                    confetti.remove();
+
+                }, 5000);
+
+            }
+
+        }
+
+
+        // Floating Hearts
+
+        function createHearts() {
+
+            for (let i = 0; i < 15; i++) {
+
+                let heart =
+                    document.createElement("div");
+
+                heart.className = "heart";
+
+                heart.innerHTML = "❤️";
+
+                heart.style.left =
+                    Math.random() * 100 + "%";
+
+                heart.style.animationDelay =
+                    Math.random() * 2 + "s";
+
+                document.body.appendChild(heart);
+
+
+                setTimeout(function () {
+
+                    heart.remove();
+
+                }, 6000);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
