@@ -40,6 +40,19 @@
             <button onclick="showPage(2)">
                 Start the Surprise ✨
             </button>
+            <audio id="birthdayMusic" loop>
+    <source src="https://github.com/Ruchitha555-rr/Bharath-Birthday/blob/main/BirthdayMusic" type="audio/mpeg">
+</audio>
+            <script>
+function startSurprise() {
+
+    const music = document.getElementById("birthdayMusic");
+
+    music.play();
+
+    showPage(2);
+}
+</script>
 
         </div>
 
